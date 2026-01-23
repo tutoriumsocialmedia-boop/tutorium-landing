@@ -1,0 +1,968 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tutorium | CUET + CLAT Coaching Kerala</title>
+  <meta name="description" content="Tutorium trains CUET + CLAT with daily practice, mock analysis, mentoring and accountability — so students improve speed, accuracy and confidence." />
+
+  <!-- Favicon (uses your new logo) -->
+  <link rel="icon" href="assets/tutorium-logo.png" />
+
+  <style>
+    :root{
+      --bg: #120406;
+      --card: rgba(255,255,255,0.06);
+      --card2: rgba(255,255,255,0.08);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.72);
+      --muted2: rgba(255,255,255,0.60);
+      --line: rgba(255,255,255,0.12);
+      --gold: #f5c84c;
+      --gold2:#ffdc7a;
+      --maroon: #4b0b12;
+      --shadow: 0 18px 50px rgba(0,0,0,0.35);
+      --radius: 18px;
+      --radius2: 26px;
+      --max: 1120px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1200px 600px at 20% 10%, rgba(245,200,76,0.10), transparent 60%),
+        radial-gradient(900px 500px at 80% 0%, rgba(255,220,122,0.10), transparent 60%),
+        radial-gradient(900px 700px at 50% 90%, rgba(120,10,24,0.25), transparent 60%),
+        linear-gradient(180deg, #0c0203 0%, var(--bg) 40%, #0b0203 100%);
+      overflow-x:hidden;
+    }
+
+    a{color:inherit; text-decoration:none}
+    .container{max-width:var(--max); margin:0 auto; padding:0 18px}
+    .section{padding:64px 0}
+    .pill{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      padding:10px 12px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1;
+      backdrop-filter: blur(10px);
+    }
+    .pill b{color:var(--gold2); font-weight:700}
+
+    /* Header */
+    .header{
+      position:sticky;
+      top:0;
+      z-index:99;
+      background: rgba(10,2,3,0.75);
+      backdrop-filter: blur(14px);
+      border-bottom:1px solid var(--line);
+    }
+    .header-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:12px 0;
+      gap:12px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width: 180px;
+    }
+    .brand img{
+      height:38px;
+      width:auto;
+      display:block;
+      border-radius:10px;
+    }
+    .brand .title{
+      display:flex;
+      flex-direction:column;
+      line-height:1.05;
+    }
+    .brand .title span:first-child{
+      font-weight:800;
+      letter-spacing:0.2px;
+    }
+    .brand .title span:last-child{
+      color:var(--muted2);
+      font-size:12px;
+    }
+
+    .nav{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .nav a{
+      font-size:13px;
+      color:var(--muted);
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid transparent;
+    }
+    .nav a:hover{border-color: var(--line); background: rgba(255,255,255,0.04); color: var(--text)}
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:12px 14px;
+      border-radius:999px;
+      border:1px solid transparent;
+      font-weight:800;
+      cursor:pointer;
+      transition: transform .06s ease, filter .2s ease, background .2s ease;
+      user-select:none;
+      white-space:nowrap;
+    }
+    .btn:active{transform: translateY(1px)}
+    .btn-primary{
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold2) 100%);
+      color:#240607;
+      box-shadow: 0 18px 40px rgba(245,200,76,0.15);
+    }
+    .btn-ghost{
+      background: rgba(255,255,255,0.04);
+      border-color: var(--line);
+      color: var(--text);
+    }
+    .btn-ghost:hover{background: rgba(255,255,255,0.06)}
+    .btn-sm{padding:10px 12px; font-size:13px}
+    .btn-lg{padding:14px 16px; font-size:15px}
+
+    /* Hero */
+    .hero{
+      padding:42px 0 14px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap:18px;
+      align-items:stretch;
+    }
+
+    .hero-left{
+      padding:22px;
+      border-radius: var(--radius2);
+      border:1px solid var(--line);
+      background:
+        radial-gradient(800px 400px at 25% 10%, rgba(245,200,76,0.14), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+      box-shadow: var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-left:after{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background: radial-gradient(700px 350px at 80% 40%, rgba(120,10,24,0.35), transparent 60%);
+      pointer-events:none;
+    }
+    .hero-left > *{position:relative}
+    h1{
+      margin:14px 0 10px;
+      font-size: clamp(28px, 4.2vw, 44px);
+      line-height: 1.05;
+      letter-spacing: -0.5px;
+    }
+    h1 .gold{color:var(--gold2)}
+    .sub{
+      margin:0 0 16px;
+      color: var(--muted);
+      font-size: 15.5px;
+      line-height: 1.5;
+      max-width: 52ch;
+    }
+    .trust-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top: 14px;
+    }
+    .trust{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 12px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      border-radius: 14px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .trust b{color:var(--text)}
+    .hero-cta{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top: 16px;
+    }
+
+    /* Form card */
+    .card{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,0.045);
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .form-card{
+      padding:18px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .form-title{
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+    }
+    .form-title h3{
+      margin:0;
+      font-size:18px;
+      letter-spacing:-0.2px;
+    }
+    .form-title p{
+      margin:0;
+      color:var(--muted2);
+      font-size:13px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+    }
+    label{
+      font-size:12px;
+      color:var(--muted2);
+      display:block;
+      margin:0 0 6px;
+    }
+    input, select{
+      width:100%;
+      padding:12px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,0.14);
+      background: rgba(0,0,0,0.25);
+      color: var(--text);
+      outline:none;
+    }
+    input::placeholder{color: rgba(255,255,255,0.45)}
+    input:focus, select:focus{
+      border-color: rgba(245,200,76,0.45);
+      box-shadow: 0 0 0 4px rgba(245,200,76,0.10);
+    }
+    .full{grid-column: 1 / -1}
+    .small-note{
+      color: var(--muted2);
+      font-size:12px;
+      line-height:1.35;
+      margin-top: -6px;
+    }
+
+    /* Section headings */
+    .kicker{
+      color: var(--gold2);
+      font-weight:800;
+      letter-spacing:0.4px;
+      font-size:13px;
+      text-transform:uppercase;
+      margin:0 0 10px;
+    }
+    .h2{
+      margin:0 0 12px;
+      font-size: clamp(22px, 3vw, 34px);
+      letter-spacing:-0.4px;
+      line-height:1.1;
+    }
+    .p{
+      margin:0 0 18px;
+      color:var(--muted);
+      line-height:1.6;
+      max-width: 70ch;
+    }
+
+    /* Cards grid */
+    .cards3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+    }
+    .mini{
+      padding:16px;
+      border-radius: var(--radius);
+      border:1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      min-height: 112px;
+    }
+    .mini h4{margin:0 0 6px; font-size:15px}
+    .mini p{margin:0; color:var(--muted); font-size:13px; line-height:1.5}
+
+    /* Image layouts */
+    .img-grid{
+      display:grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap:12px;
+      align-items:start;
+    }
+    .img-stack{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:12px;
+    }
+    .img-card{
+      border:1px solid var(--line);
+      border-radius: var(--radius2);
+      overflow:hidden;
+      background: rgba(255,255,255,0.03);
+      box-shadow: var(--shadow);
+    }
+    .img-card img{
+      width:100%;
+      height:auto;
+      display:block;
+    }
+    .img-caption{
+      padding:10px 12px;
+      color:var(--muted2);
+      font-size:12px;
+      border-top:1px solid var(--line);
+      background: rgba(0,0,0,0.20);
+    }
+
+    /* Programs */
+    .programs{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+    }
+    .program{
+      padding:16px;
+      border-radius: var(--radius2);
+      border:1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius: 999px;
+      border:1px solid rgba(245,200,76,0.25);
+      background: rgba(245,200,76,0.08);
+      color: var(--gold2);
+      font-size:12px;
+      width:max-content;
+      font-weight:700;
+    }
+    .program h4{margin:0; font-size:16px}
+    .program ul{margin:0; padding-left:18px; color:var(--muted); line-height:1.6; font-size:13px}
+    .program .btn{margin-top:auto}
+
+    /* FAQ */
+    .faq{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+    }
+    details{
+      border:1px solid var(--line);
+      border-radius: var(--radius2);
+      background: rgba(255,255,255,0.04);
+      overflow:hidden;
+    }
+    summary{
+      cursor:pointer;
+      padding:14px 14px;
+      font-weight:800;
+      color: var(--text);
+      list-style:none;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    }
+    summary::-webkit-details-marker{display:none}
+    details p{
+      margin:0;
+      padding:0 14px 14px;
+      color:var(--muted);
+      line-height:1.55;
+      font-size:13px;
+    }
+    .plus{color:var(--gold2); font-weight:900}
+
+    /* Final CTA */
+    .final{
+      padding:22px;
+      border-radius: var(--radius2);
+      border:1px solid var(--line);
+      background:
+        radial-gradient(900px 400px at 20% 10%, rgba(245,200,76,0.18), transparent 60%),
+        radial-gradient(800px 500px at 80% 40%, rgba(120,10,24,0.40), transparent 60%),
+        rgba(255,255,255,0.04);
+      box-shadow: var(--shadow);
+      display:grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap:14px;
+      align-items:center;
+    }
+
+    /* Footer */
+    footer{
+      padding:28px 0 90px;
+      border-top:1px solid var(--line);
+      color:var(--muted2);
+      font-size:12px;
+    }
+    .footer-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:space-between;
+      align-items:center;
+    }
+    .contacts a{
+      color:var(--gold2);
+      font-weight:800;
+      margin-left:10px;
+      white-space:nowrap;
+    }
+
+    /* Sticky mobile bar */
+    .mobilebar{
+      position:fixed;
+      left:0; right:0; bottom:0;
+      z-index:999;
+      padding:10px 12px;
+      background: rgba(10,2,3,0.85);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid var(--line);
+      display:none;
+    }
+    .mobilebar .wrap{
+      display:grid;
+      grid-template-columns: 1fr 1fr 1.2fr;
+      gap:10px;
+      max-width: var(--max);
+      margin:0 auto;
+    }
+
+    /* Utilities */
+    .split{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .divider{
+      height:1px;
+      background: var(--line);
+      margin: 18px 0;
+    }
+    .muted{color:var(--muted)}
+    .center{display:flex; justify-content:center}
+
+    /* Responsive */
+    @media (max-width: 920px){
+      .hero-grid{grid-template-columns:1fr}
+      .final{grid-template-columns:1fr}
+      .img-grid{grid-template-columns:1fr}
+      .cards3{grid-template-columns:1fr}
+      .programs{grid-template-columns:1fr}
+      .faq{grid-template-columns:1fr}
+      .nav{display:none}
+      .mobilebar{display:block}
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Tutorium Home">
+        <img src="assets/tutorium-logo.png" alt="Tutorium Logo" />
+        <div class="title">
+          <span>Tutorium</span>
+          <span>CUET + CLAT Coaching (Kerala)</span>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#cuet">CUET</a>
+        <a href="#clat">CLAT</a>
+        <a href="#results">Results</a>
+        <a href="#how">How it works</a>
+        <a href="#programs">Programs</a>
+        <a href="#faq">FAQ</a>
+        <a class="btn btn-primary btn-sm" href="#form">Book Free Counselling</a>
+      </nav>
+
+      <div class="split">
+        <a class="btn btn-ghost btn-sm" id="callTop" href="tel:+918891258222">Call</a>
+        <a class="btn btn-primary btn-sm" href="#form">Book Free Counselling</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main id="top" class="hero">
+    <div class="container hero-grid">
+      <section class="hero-left">
+        <div class="pill">
+          <span>Online coaching for Kerala</span> • <b>CUET + CLAT</b> • <span>Mentorship + Mocks</span>
+        </div>
+
+        <h1>
+          A clear plan. Weekly targets. <span class="gold">Real results</span> —
+          that’s how Kerala students crack CUET/CLAT.
+        </h1>
+
+        <p class="sub">
+          Tutorium trains CUET + CLAT with daily practice, mock analysis, mentoring and accountability —
+          so students improve speed, accuracy and confidence.
+        </p>
+
+        <div class="hero-cta">
+          <a class="btn btn-primary btn-lg" href="#form">Book Free Counselling</a>
+          <a class="btn btn-ghost btn-lg" href="https://wa.me/918891258222?text=Hi%20Tutorium%2C%20I%20want%20free%20counselling%20for%20CUET%2FCLAT." target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn btn-ghost btn-lg" href="tel:+918891241555">Call</a>
+        </div>
+
+        <div class="trust-row">
+          <div class="trust"><b>30s form</b> → WhatsApp confirmation</div>
+          <div class="trust"><b>Mentor review</b> + weekly targets</div>
+          <div class="trust"><b>Mock → analysis</b> → improvement</div>
+        </div>
+      </section>
+
+      <!-- Lead Form -->
+      <aside class="card form-card" id="form">
+        <div class="form-title">
+          <h3>Book Free Counselling</h3>
+          <p>Takes 30 seconds. We confirm on WhatsApp.</p>
+        </div>
+
+        <form id="leadForm">
+          <div class="grid">
+            <div>
+              <label for="name">Student Name</label>
+              <input id="name" name="name" placeholder="Eg: Amal" required />
+            </div>
+
+            <div>
+              <label for="whatsapp">WhatsApp Number</label>
+              <input id="whatsapp" name="whatsapp" placeholder="Eg: 98xxxxxxxx" inputmode="numeric" required />
+            </div>
+
+            <div>
+              <label for="program">Interested In</label>
+              <select id="program" name="program" required>
+                <option value="" selected disabled>Select</option>
+                <option value="CUET">CUET</option>
+                <option value="CLAT">CLAT</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="class">Class</label>
+              <select id="class" name="class" required>
+                <option value="" selected disabled>Select</option>
+                <option>Class 11</option>
+                <option>Class 12</option>
+                <option>Drop / Repeat</option>
+              </select>
+            </div>
+
+            <div class="full">
+              <label for="time">Preferred Call Time</label>
+              <input id="time" name="time" placeholder="Eg: Today 6 PM / Tomorrow 10 AM" />
+              <div class="small-note">We will guide you step by step.</div>
+            </div>
+
+            <div class="full">
+              <button class="btn btn-primary btn-lg" type="submit">Send on WhatsApp</button>
+            </div>
+          </div>
+        </form>
+
+        <div class="divider"></div>
+
+        <div class="split">
+          <a class="btn btn-ghost btn-sm" href="tel:+918891258222">Call: +91 88912 58222</a>
+          <a class="btn btn-ghost btn-sm" href="tel:+918891241555">Call: +91 88912 41555</a>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- How it works -->
+  <section id="how" class="section">
+    <div class="container">
+      <p class="kicker">How we achieve results</p>
+      <h2 class="h2">A system that forces improvement</h2>
+      <p class="p">
+        Students need a plan, daily practice, and a mentor loop that turns mocks into score growth.
+      </p>
+
+      <div class="cards3">
+        <div class="mini">
+          <h4>Mock → Analysis → Improvement Loop</h4>
+          <p>Every test becomes feedback. Weak areas are identified and fixed to improve performance.</p>
+        </div>
+        <div class="mini">
+          <h4>Mentorship + Accountability</h4>
+          <p>Regular targets, tracking, and follow-up</p>
+        </div>
+        <div class="mini">
+          <h4>Resource Lab and Materials prepared by Experts</h4>
+          <p>Top quality resources for studying, revision and preparation</p>
+        </div>
+      </div>
+
+      <div class="center" style="margin-top:16px;">
+        <a class="btn btn-primary btn-lg" href="#form">Book Free Counselling</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results / Proof -->
+  <section id="results" class="section">
+    <div class="container">
+      <p class="kicker">Proof</p>
+      <h2 class="h2">Results you can see</h2>
+      <p class="p">Here are real Tutorium outcomes and testimonials</p>
+    </div>
+  </section>
+
+  <!-- CUET -->
+  <section id="cuet" class="section">
+    <div class="container">
+      <p class="kicker">CUET</p>
+      <h2 class="h2">CUET Coaching for Commerce & Humanities</h2>
+      <p class="p">
+        CUET Results: Next success story could be yours. We focus on consistent practice + mentor feedback so improvement is a surety.
+      </p>
+
+      <div class="img-grid">
+        <div class="img-card">
+          <img src="assets/cuet-1.jpeg" alt="CUET proof banner" />
+          <div class="img-caption">Proof banner</div>
+        </div>
+
+        <div class="img-stack">
+          <div class="img-card">
+            <img src="assets/cuet-13.jpeg" alt="CUET results wall" />
+            <div class="img-caption">Results wall</div>
+          </div>
+          <div class="img-card">
+            <img src="assets/cuet-10.jpeg" alt="CUET success stories" />
+            <div class="img-caption">Success stories</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:14px" class="cards3">
+        <div class="mini"><h4>Mock → Analysis → Improvement Loop</h4><p>Weekly tests + clear action items.</p></div>
+        <div class="mini"><h4>Mentorship + Accountability</h4><p>Targets + follow-ups for consistency.</p></div>
+        <div class="mini"><h4>Resource Lab</h4><p>Top quality resources for studying, revision and preparation</p></div>
+      </div>
+
+      <div class="center" style="margin-top:16px;">
+        <a class="btn btn-primary btn-lg" href="#form">Book Free Counselling</a>
+      </div>
+
+      <div class="divider"></div>
+
+      <p class="kicker">Testimonials</p>
+
+      <div class="img-grid">
+        <div class="img-card">
+          <img src="assets/cuet-8.jpeg" alt="CUET testimonial 1" />
+          <div class="img-caption">Student testimonial</div>
+        </div>
+        <div class="img-stack">
+          <div class="img-card">
+            <img src="assets/cuet-11.jpeg" alt="CUET testimonial 2" />
+            <div class="img-caption">Student testimonial</div>
+          </div>
+          <div class="img-card">
+            <img src="assets/cuet-3.jpeg" alt="CUET testimonial 3" />
+            <div class="img-caption">Student testimonial</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <p class="kicker" id="programs">CUET Programs</p>
+      <div class="programs">
+        <div class="program">
+          <span class="tag">CUET</span>
+          <h4>CUET SURE Live Batch</h4>
+          <ul>
+            <li>Daily practice + weekly tests</li>
+            <li>Mentor guidance + study targets</li>
+            <li>Score improvement tracking</li>
+          </ul>
+          <a class="btn btn-primary" href="#form">Book Free Counselling</a>
+        </div>
+
+        <div class="program">
+          <span class="tag">CUET</span>
+          <h4>CUET Crash Batch</h4>
+          <ul>
+            <li>Fast revision + exam strategy</li>
+            <li>High-frequency mocks</li>
+            <li>Shortcuts + time management</li>
+          </ul>
+          <a class="btn btn-primary" href="#form">Book Free Counselling</a>
+        </div>
+
+        <div class="program">
+          <span class="tag">CUET</span>
+          <h4>CUET Test Series</h4>
+          <ul>
+            <li>All-India level tests</li>
+            <li>Detailed analysis</li>
+            <li>Weak-area action plan</li>
+          </ul>
+          <a class="btn btn-primary" href="#form">Book Free Counselling</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLAT -->
+  <section id="clat" class="section">
+    <div class="container">
+      <p class="kicker">CLAT</p>
+      <h2 class="h2">CLAT Coaching built for rank — not random prep</h2>
+      <p class="p">
+        CLAT is about speed + accuracy under pressure. We build that through toppers’ mentorship, analytics, and comparative mocks.
+      </p>
+
+      <div class="img-grid">
+        <div class="img-card">
+          <img src="assets/clat-1.jpeg" alt="CLAT Super 20 program overview" />
+          <div class="img-caption">Program overview (Super 20)</div>
+        </div>
+
+        <div class="img-stack">
+          <div class="img-card">
+            <img src="assets/clat-3.jpeg" alt="CLAT proof + CTA" />
+            <div class="img-caption">Proof + CTA</div>
+          </div>
+          <div class="img-card">
+            <img src="assets/clat-2.jpeg" alt="CLAT results wall" />
+            <div class="img-caption">Results wall</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <p class="kicker">Why CLAT students choose Tutorium</p>
+      <div class="cards3">
+        <div class="mini"><h4>Personal mentorship by toppers</h4><p>Weekly guidance and accountability.</p></div>
+        <div class="mini"><h4>AI-enabled tests + analytics</h4><p>Know exactly what to fix.</p></div>
+        <div class="mini"><h4>All-India comparative mocks</h4><p>Track national standing.</p></div>
+        <div class="mini"><h4>Expert curated materials</h4><p>Structured practice material.</p></div>
+        <div class="mini"><h4>Scientifically designed study plan</h4><p>Weekly targets that compound.</p></div>
+        <div class="mini"><h4>Induction sessions with toppers</h4><p>Mindset + exam approach.</p></div>
+      </div>
+
+      <div class="center" style="margin-top:16px;">
+        <a class="btn btn-primary btn-lg" href="#form">Book Free Counselling</a>
+      </div>
+
+      <div class="divider"></div>
+
+      <p class="kicker">CLAT Testimonial</p>
+      <div class="img-card">
+        <img src="assets/clat-4.jpeg" alt="CLAT testimonial" />
+        <div class="img-caption">Student testimonial</div>
+      </div>
+
+      <div class="divider"></div>
+
+      <p class="kicker">CLAT Programs</p>
+      <div class="programs">
+        <div class="program">
+          <span class="tag">CLAT</span>
+          <h4>CLAT SURE Super 20 Batch</h4>
+          <ul>
+            <li>Topper mentorship</li>
+            <li>Comparative mocks + analytics</li>
+            <li>Rank-focused study plan</li>
+          </ul>
+          <a class="btn btn-primary" href="#form">Book Free Counselling</a>
+        </div>
+
+        <div class="program">
+          <span class="tag">CLAT</span>
+          <h4>CLAT Foundation Batch</h4>
+          <ul>
+            <li>Strong base building</li>
+            <li>Daily practice structure</li>
+            <li>Consistency + score growth</li>
+          </ul>
+          <a class="btn btn-primary" href="#form">Book Free Counselling</a>
+        </div>
+
+        <div class="program">
+          <span class="tag">CLAT</span>
+          <h4>CLAT Test Series</h4>
+          <ul>
+            <li>All-India mock tests</li>
+            <li>Detailed evaluation</li>
+            <li>Improve accuracy & speed</li>
+          </ul>
+          <a class="btn btn-primary" href="#form">Book Free Counselling</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section">
+    <div class="container">
+      <p class="kicker">FAQ</p>
+      <h2 class="h2">Common Questions</h2>
+      <p class="p">If you still have a doubt, book a counselling call — we will guide you step by step.</p>
+
+      <div class="faq">
+        <details>
+          <summary>Can students balance boards + CUET/CLAT? <span class="plus">+</span></summary>
+          <p>Yes. With the right strategy, preparation and support, boards can be balanced with CUET/CLAT. We set study targets so both move together.</p>
+        </details>
+        <details>
+          <summary>Do you offer Malayalam-friendly support? <span class="plus">+</span></summary>
+          <p>Yes. We provide Malayalam-friendly support when needed — while keeping preparation at a national competitive level.</p>
+        </details>
+        <details>
+          <summary>Online or offline? <span class="plus">+</span></summary>
+          <p>We provide online classes, designed to work well for Kerala students with structured schedules and mentor follow-ups.</p>
+        </details>
+        <details>
+          <summary>Are classes recorded? <span class="plus">+</span></summary>
+          <p>No — we provide live classes to keep students accountable and consistent.Recorded classes will be available for revision.</p>
+        </details>
+
+        <details>
+          <summary>How does mentorship work? <span class="plus">+</span></summary>
+          <p>Mentors review performance, set study targets, and guide what to fix next — so improvement is measurable.</p>
+        </details>
+        <details>
+          <summary>Can I join only the test series? <span class="plus">+</span></summary>
+          <p>Yes. You can join the test series.</p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="section">
+    <div class="container">
+      <div class="final">
+        <div>
+          <p class="kicker">Final step</p>
+          <h2 class="h2">Talk to a mentor and get a clear plan today.</h2>
+          <p class="p">Achieve your dream college.</p>
+          <div class="split">
+            <a class="btn btn-primary btn-lg" href="#form">Book Free Counselling</a>
+            <a class="btn btn-ghost btn-lg" href="https://wa.me/918891258222?text=Hi%20Tutorium%2C%20I%20want%20free%20counselling%20for%20CUET%2FCLAT." target="_blank" rel="noopener">WhatsApp</a>
+            <a class="btn btn-ghost btn-lg" href="tel:+918891241555">Call</a>
+          </div>
+        </div>
+
+        <div class="card" style="padding:16px;">
+          <div class="pill"><b>Assured</b> • WhatsApp confirmation</div>
+          <div class="divider"></div>
+          <p class="muted" style="margin:0 0 8px;">
+            Prefer direct call?
+          </p>
+          <div class="split">
+            <a class="btn btn-ghost" href="tel:+918891258222">+91 88912 58222</a>
+            <a class="btn btn-ghost" href="tel:+918891241555">+91 88912 41555</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-row">
+      <div>© <span id="year"></span> Tutorium. All rights reserved.</div>
+      <div class="contacts">
+        <span class="muted">Call:</span>
+        <a href="tel:+918891258222">+91 88912 58222</a>
+        <a href="tel:+918891241555">+91 88912 41555</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Sticky mobile CTA bar -->
+  <div class="mobilebar" aria-label="Mobile quick actions">
+    <div class="wrap">
+      <a class="btn btn-ghost" href="https://wa.me/918891258222?text=Hi%20Tutorium%2C%20I%20want%20free%20counselling%20for%20CUET%2FCLAT." target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn btn-ghost" href="tel:+918891258222">Call</a>
+      <a class="btn btn-primary" href="#form">Book Free Counselling</a>
+    </div>
+  </div>
+
+  <script>
+    // Update year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // WhatsApp submission
+    const leadForm = document.getElementById("leadForm");
+    leadForm.addEventListener("submit", function(e){
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const whatsapp = document.getElementById("whatsapp").value.trim();
+      const program = document.getElementById("program").value;
+      const cls = document.getElementById("class").value;
+      const time = document.getElementById("time").value.trim();
+
+      // You can change this to your preferred WhatsApp number:
+      const businessNumber = "918891258222";
+
+      const msg =
+        `Hi Tutorium, I want free counselling.%0A` +
+        `Name: ${encodeURIComponent(name)}%0A` +
+        `WhatsApp: ${encodeURIComponent(whatsapp)}%0A` +
+        `Program: ${encodeURIComponent(program)}%0A` +
+        `Class: ${encodeURIComponent(cls)}%0A` +
+        `Preferred call time: ${encodeURIComponent(time || "Not mentioned")}`;
+
+      const url = `https://wa.me/${businessNumber}?text=${msg}`;
+      window.open(url, "_blank", "noopener,noreferrer");
+    });
+  </script>
+</body>
+</html>
