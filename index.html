@@ -70,62 +70,39 @@
     .pill b{color:var(--gold2); font-weight:700}
 
     /* Header */
-    .header{
-      position:sticky;
-      top:0;
-      z-index:99;
-      background: rgba(10,2,3,0.75);
-      backdrop-filter: blur(14px);
-      border-bottom:1px solid var(--line);
-    }
-    .header-inner{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:12px 0;
-      gap:12px;
-    }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      min-width: 180px;
-    }
-    .brand img{
-      height:38px;
-      width:auto;
-      display:block;
-      border-radius:10px;
-    }
-    .brand .title{
-      display:flex;
-      flex-direction:column;
-      line-height:1.05;
-    }
-    .brand .title span:first-child{
-      font-weight:800;
-      letter-spacing:0.2px;
-    }
-    .brand .title span:last-child{
-      color:var(--muted2);
-      font-size:12px;
-    }
+   .header{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255,255,255,0.92);   /* lighter */
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(10px);
+}
 
-    .nav{
-      display:flex;
-      gap:14px;
-      align-items:center;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-    }
-    .nav a{
-      font-size:13px;
-      color: var(--text);
-      padding:8px 10px;
-      border-radius:999px;
-      border:1px solid transparent;
-    }
-    .nav a:hover{border-color: var(--line); background: rgba(255,255,255,0.04); color: var(--text)}
+.header-inner{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+/* Nav links */
+.nav a{
+  color: #111827;          /* dark readable */
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.nav a:hover{
+  opacity: 1;
+  background: rgba(17,24,39,0.06);
+}
+
+/* If you have pills/active state etc */
+.nav a.active{
+  background: rgba(17,24,39,0.08);
+  border: 1px solid rgba(17,24,39,0.10);
+}
 
     .btn{
       display:inline-flex;
@@ -527,7 +504,6 @@
         <a href="#how">How it works</a>
         <a href="#faq">FAQ</a>
         <a href="https://tutorium.in/blog" target="_blank" rel="noopener">Blog</a>
-        <a class="btn btn-primary btn-sm" href="#form">Book Free Counselling</a>
       </nav>
 
       <div class="split">
@@ -546,7 +522,7 @@
         </div>
 
         <h1>
-          Tutorium Online — Kerala's No. 1 Platform for <span class="gold">CUET/CLAT</span>
+          Tutorium Online - Kerala's No. 1 Platform for <span class="gold">CUET/CLAT</span>
         </h1>
 
         <p class="sub">
@@ -571,7 +547,7 @@
       <aside class="card form-card" id="form">
         <div class="form-title">
           <h3>Book Free Counselling</h3>
-          <p>Takes 30 seconds. We confirm on WhatsApp.</p>
+          <p>We will guide you step by step.</p>
         </div>
 
         <form id="leadForm">
@@ -608,7 +584,6 @@
             <div class="full">
               <label for="time">Preferred Call Time</label>
               <input id="time" name="time" placeholder="Eg: Today 6 PM / Tomorrow 10 AM" />
-              <div class="small-note">We will guide you step by step.</div>
             </div>
 
             <div class="full">
