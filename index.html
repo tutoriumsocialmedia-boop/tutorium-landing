@@ -920,21 +920,22 @@
   </div>
 
   <script>
-    // Update year
-    document.getElementById("year").textContent = new Date().getFullYear();
+  // Update year safely (won't crash if missing)
+  const yearEl = document.getElementById("year");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    // WhatsApp submission
-    const leadForm = document.getElementById("leadForm");
-    leadForm.addEventListener("submit", function(e){
+  // WhatsApp submission safely
+  const leadForm = document.getElementById("leadForm");
+  if (leadForm) {
+    leadForm.addEventListener("submit", function (e) {
       e.preventDefault();
 
-      const name = document.getElementById("name").value.trim();
-      const whatsapp = document.getElementById("whatsapp").value.trim();
-      const program = document.getElementById("program").value;
-      const cls = document.getElementById("class").value;
-      const time = document.getElementById("time").value.trim();
+      const name = document.getElementById("name")?.value?.trim() || "";
+      const whatsapp = document.getElementById("whatsapp")?.value?.trim() || "";
+      const program = document.getElementById("program")?.value || "";
+      const cls = document.getElementById("class")?.value || "";
+      const time = document.getElementById("time")?.value?.trim() || "";
 
-      // You can change this to your preferred WhatsApp number:
       const businessNumber = "918891258222";
 
       const msg =
@@ -945,9 +946,9 @@
         `Class: ${encodeURIComponent(cls)}%0A` +
         `Preferred call time: ${encodeURIComponent(time || "Not mentioned")}`;
 
-      const url = `https://wa.me/${businessNumber}?text=${msg}`;
-      window.open(url, "_blank", "noopener,noreferrer");
+      window.open(`https://wa.me/${businessNumber}?text=${msg}`, "_blank", "noopener,noreferrer");
     });
-  </script>
+  }
+</script>
 </body>
 </html>
