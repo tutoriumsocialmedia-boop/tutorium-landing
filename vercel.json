@@ -4,8 +4,9 @@
     { "source": "/about", "destination": "/", "permanent": true },
     { "source": "/test-series", "destination": "/", "permanent": true },
     { "source": "/blog", "destination": "/", "permanent": true },
-    { "source": "/contact", "destination": "/", "permanent": true },
-
-    { "source": "/(.*)", "destination": "/", "permanent": false }
+    { "source": "/contact", "destination": "/", "permanent": true }
+  ],
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/" }
   ]
 }
