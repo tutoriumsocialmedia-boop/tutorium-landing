@@ -531,7 +531,35 @@ img[alt="Tutorium Logo"]{
   align-items: center;
   gap: 12px;
 }
+/* Make section images show fully (no crop) */
+.section img,
+.card img,
+.image-card img,
+img.proof-banner,
+img.results-wall,
+img.program-overview,
+img.proof-cta {
+  width: 100%;
+  height: auto;
+  object-fit: contain;   /* KEY: contain = no crop */
+  display: block;
+}
 
+/* If any wrapper is clipping, allow it */
+.section,
+.card,
+.image-card {
+  overflow: visible;
+}
+.caption,
+.card-title,
+.section-title,
+.image-title,
+.fig-title,
+.label,
+small.title {
+  display: none !important;
+}
   </style>
 </head>
 
@@ -810,11 +838,7 @@ img[alt="Tutorium Logo"]{
             <img src="assets/clat-3.jpeg.jpeg" alt="CLAT proof + CTA" />
             <div class="img-caption">Proof + CTA</div>
           </div>
-          <div class="img-card">
-            <img src="assets/clat-2.jpeg.jpeg" alt="CLAT results wall" />
-            <div class="img-caption">Results wall</div>
           </div>
-        </div>
       </div>
 
       <div class="divider"></div>
