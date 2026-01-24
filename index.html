@@ -968,9 +968,14 @@
   }
 </script>
 <script>
-document.body.style.display = "block";
-document.body.style.opacity = "1";
-document.body.style.visibility = "visible";
+setTimeout(() => {
+  document.body.style.display = 'block';
+  document.body.style.opacity = '1';
+  document.body.style.visibility = 'visible';
+  document.body.style.height = 'auto';
+  document.body.style.overflow = 'auto';
+}, 0);
 </script>
+
 </body>
 </html>
