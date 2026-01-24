@@ -498,6 +498,40 @@
       .nav{display:none}
       .mobilebar{display:block}
     }
+    /* --- Fix logo size (add at bottom of your existing style block) --- */
+.brand img,
+img[alt="Tutorium Logo"]{
+  height: 42px;       /* try 38–52 */
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
+  display: block;
+}
+
+.header-inner{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+/* Global safe image rule */
+img { max-width: 100%; height: auto; }
+
+/* Logo size override */
+.brand img,
+img[alt="Tutorium Logo"]{
+  height: 42px;
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
+  display: block;
+}
+
+.header-inner{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
   </style>
 </head>
 
