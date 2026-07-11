@@ -560,30 +560,88 @@ img.proof-cta {
 .image-card {
   overflow: visible;
 }
+/* Premium warm yellow background inspired by Pantone 1495 C */
 html,
 body {
   min-height: 100%;
-  background: #651F2A;
-  color: #ffffff;
+  color: #172238;
+
+  background-color: #F89A24;
+
+  background-image:
+    radial-gradient(
+      circle at 12% 15%,
+      rgba(255, 255, 255, 0.48) 0%,
+      rgba(255, 255, 255, 0.18) 28%,
+      transparent 52%
+    ),
+    radial-gradient(
+      circle at 88% 72%,
+      rgba(255, 244, 214, 0.42) 0%,
+      transparent 46%
+    ),
+    linear-gradient(
+      135deg,
+      #F89A24 0%,
+      #F7A62C 42%,
+      #F9B94D 72%,
+      #FFF0C9 100%
+    );
+
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
-    /* Keep content panels readable on the dark maroon background */
+
+/* Light premium content panels */
 .hero-card,
 .form-card,
 .card,
 .img-card,
 .course-card,
 .testimonial-card {
-  background: rgba(255, 255, 255, 0.96);
+  background: rgba(255, 255, 255, 0.94);
   color: #172238;
+  border: 1px solid rgba(76, 31, 38, 0.12);
+
+  box-shadow:
+    0 20px 50px rgba(84, 44, 12, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
-/* Normal text inside light cards */
-.hero-card p,
-.form-card p,
-.card p,
-.hero-card label,
-.form-card label {
-  color: #334155;
+/* White primary buttons */
+.btn-primary,
+.cta-button,
+.header-cta,
+button[type="submit"] {
+  background: #FFFFFF !important;
+  color: #4B1821 !important;
+  border: 1px solid rgba(75, 24, 33, 0.18);
+
+  box-shadow:
+    0 10px 24px rgba(75, 24, 33, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.btn-primary:hover,
+.cta-button:hover,
+.header-cta:hover,
+button[type="submit"]:hover {
+  background: #FFF8EC !important;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(75, 24, 33, 0.22);
+}
+
+/* Clear form fields */
+input,
+select,
+textarea {
+  background: rgba(255, 255, 255, 0.92);
+  color: #172238;
+  border: 1px solid rgba(75, 24, 33, 0.15);
 }
   </style>
 </head>
