@@ -560,60 +560,30 @@ img.proof-cta {
 .image-card {
   overflow: visible;
 }
-/* Premium organic gradient:
-   deep maroon + muted gold + warm orange */
 html,
 body {
   min-height: 100%;
+  background: #651F2A;
+  color: #ffffff;
+}
+    /* Keep content panels readable on the dark maroon background */
+.hero-card,
+.form-card,
+.card,
+.img-card,
+.course-card,
+.testimonial-card {
+  background: rgba(255, 255, 255, 0.96);
   color: #172238;
+}
 
-  background-color: #fffaf8;
-
-  background-image:
-    /* Deep 4102 C-inspired maroon */
-    radial-gradient(
-      circle at 82% 12%,
-      rgba(92, 24, 35, 0.22) 0%,
-      rgba(92, 24, 35, 0.11) 22%,
-      transparent 47%
-    ),
-
-    /* A second softer maroon area */
-    radial-gradient(
-      circle at 45% 58%,
-      rgba(108, 34, 46, 0.16) 0%,
-      rgba(108, 34, 46, 0.07) 30%,
-      transparent 56%
-    ),
-
-    /* 6018 C-inspired warm orange */
-    radial-gradient(
-      circle at 8% 25%,
-      rgba(241, 118, 43, 0.16) 0%,
-      rgba(241, 118, 43, 0.07) 26%,
-      transparent 48%
-    ),
-
-    /* 4008 C-inspired muted gold */
-    radial-gradient(
-      circle at 20% 88%,
-      rgba(228, 166, 36, 0.14) 0%,
-      rgba(228, 166, 36, 0.06) 28%,
-      transparent 52%
-    ),
-
-    /* Soft white base blend */
-    linear-gradient(
-      135deg,
-      #ffffff 0%,
-      #fff8f5 35%,
-      #f8e9e8 67%,
-      #fffaf7 100%
-    );
-
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
+/* Normal text inside light cards */
+.hero-card p,
+.form-card p,
+.card p,
+.hero-card label,
+.form-card label {
+  color: #334155;
 }
   </style>
 </head>
