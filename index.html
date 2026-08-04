@@ -560,11 +560,157 @@ img.proof-cta {
 .image-card {
   overflow: visible;
 }
+    /* =========================
+   CUET RESULTS POPUP
+========================= */
+
+.results-popup-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background: rgba(15, 8, 10, 0.82);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.results-popup-overlay.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.results-popup-box {
+  position: relative;
+
+  width: min(92vw, 520px);
+  max-height: 90vh;
+
+  border-radius: 18px;
+  overflow: hidden;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.12);
+
+  transform: translateY(18px) scale(0.97);
+  transition: transform 0.3s ease;
+}
+
+.results-popup-overlay.is-visible .results-popup-box {
+  transform: translateY(0) scale(1);
+}
+
+.results-popup-image {
+  display: block;
+
+  width: 100%;
+  height: auto;
+  max-height: 90vh;
+
+  object-fit: contain;
+  background: #ffffff;
+}
+
+.results-popup-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+
+  width: 42px;
+  height: 42px;
+
+  display: grid;
+  place-items: center;
+
+  border: 0;
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.95);
+  color: #4c101e;
+
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+
+  cursor: pointer;
+
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.24);
+}
+
+.results-popup-close:hover {
+  background: #ffffff;
+  transform: scale(1.05);
+}
+
+body.popup-open {
+  overflow: hidden;
+}
+
+/* Mobile adjustment */
+@media (max-width: 600px) {
+  .results-popup-overlay {
+    padding: 12px;
+  }
+
+  .results-popup-box {
+    width: min(94vw, 430px);
+    max-height: 88vh;
+    border-radius: 14px;
+  }
+
+  .results-popup-image {
+    max-height: 88vh;
+  }
+
+  .results-popup-close {
+    top: 8px;
+    right: 8px;
+    width: 38px;
+    height: 38px;
+    font-size: 25px;
+  }
+}
   </style>
 </head>
 
 <body>
+<!-- CUET Results Popup -->
+<div
+  class="results-popup-overlay"
+  id="resultsPopup"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Tutorium CUET results"
+>
+  <div class="results-popup-box">
+    <button
+      class="results-popup-close"
+      id="resultsPopupClose"
+      type="button"
+      aria-label="Close popup"
+    >
+      &times;
+    </button>
 
+    <img
+      class="results-popup-image"
+      src="assets/cuet-results-popup.jpeg"
+      alt="Tutorium's successful CUET batch in Kerala"
+    />
+  </div>
+</div>
   <!-- Header -->
   <header class="header">
     <div class="container header-inner">
@@ -1034,6 +1180,57 @@ setTimeout(() => {
   document.body.style.overflow = 'auto';
 }, 0);
 </script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const popup = document.getElementById("resultsPopup");
+    const closeButton = document.getElementById("resultsPopupClose");
 
+    if (!popup || !closeButton) return;
+
+    const popupAlreadyShown = sessionStorage.getItem(
+      "tutoriumResultsPopupShown"
+    );
+
+    function openPopup() {
+      popup.classList.add("is-visible");
+      document.body.classList.add("popup-open");
+      closeButton.focus();
+    }
+
+    function closePopup() {
+      popup.classList.remove("is-visible");
+      document.body.classList.remove("popup-open");
+
+      sessionStorage.setItem(
+        "tutoriumResultsPopupShown",
+        "true"
+      );
+    }
+
+    /* Show shortly after the page begins loading */
+    if (!popupAlreadyShown) {
+      window.setTimeout(openPopup, 350);
+    }
+
+    closeButton.addEventListener("click", closePopup);
+
+    /* Close when clicking the dark area outside the image */
+    popup.addEventListener("click", function (event) {
+      if (event.target === popup) {
+        closePopup();
+      }
+    });
+
+    /* Close using the Escape key */
+    document.addEventListener("keydown", function (event) {
+      if (
+        event.key === "Escape" &&
+        popup.classList.contains("is-visible")
+      ) {
+        closePopup();
+      }
+    });
+  });
+</script>
 </body>
 </html>
